@@ -18,6 +18,7 @@ const notoSans = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mobile-wedding-invitation-iota.vercel.app"),
   title: "심플 & 웜 모바일 청첩장",
   description: "우리의 소중한 날, 당신을 초대합니다.",
   openGraph: {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     description: "2026년 12월 6일 일요일 오전 11시",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/hero_1.JPG",
         width: 1200,
         height: 630,
         alt: "모바일 청첩장",
