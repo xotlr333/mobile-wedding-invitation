@@ -1,0 +1,122 @@
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Copy, Check } from 'lucide-react';
+
+export default function Account() {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+
+  const accounts = [
+    {
+      id: 'groom',
+      title: '신랑측 계좌번호',
+      list: [
+        { bank: '국민은행', num: '123456-01-123456', owner: '김동수' },
+        { bank: '신한은행', num: '987-654-3210', owner: '김영수(부)' },
+      ]
+    },
+    {
+      id: 'bride',
+      title: '신부측 계죄번호',
+      list: [
+        { bank: '우리은행', num: '1002-123-456789', owner: '이영자' },
+        { bank: '농협은행', num: '302-1234-5678-90', owner: '박정숙(모)' },
+      ]
+    }
+  ];
+
+  const handleCopy = (num: string) => {
+    navigator.clipboard.writeText(num).then(() => {
+      setCopied(num);
+      setTimeout(() => setCopied(null), 2000);
+    });
+  };
+
+  return (
+    <section style={{ backgroundColor: 'var(--secondary-bg)' }}>
+      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--accent-color)' }}>ACCOUNT</h2>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {accounts.map((group) => (
+          <div key={group.id} style={{ border: '1px solid var(--border-color)', borderRadius: '8px', backgroundColor: 'var(--background)' }}>
+            <button
+              onClick={() => setOpenSection(openSection === group.id ? null : group.id)}
+              style={{ width: '100%', padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+            >
+              <span style={{ fontSize: '1rem', fontWeight: 500 }}>{group.title}</span>
+              <ChevronDown
+                size={20}
+                style={{ transform: openSection === group.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              />
+            </button>
+            <AnimatePresence>
+              {openSection === group.id && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div style={{ padding: '0 16px 16px', borderTop: '1px solid var(--border-color)' }}>
+                    {group.list.map((item, idx) => (
+                      <div key={idx} style={{ paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ fontSize: '0.9rem' }}>
+                          <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>{item.bank} {item.owner}</div>
+                          <div style={{ color: 'var(--text-muted)' }}>{item.num}</div>
+                        </div>
+                        <button
+                          onClick={() => handleCopy(item.num)}
+                          style={{
+                            padding: '6px 12px',
+                            backgroundColor: 'var(--secondary-bg)',
+                            borderRadius: '4px',
+                            fontSize: '0.8rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '4px'
+                          }}
+                        >
+                          {copied === item.num ? <Check size={14} color="#28a745" /> : <Copy size={14} />}
+                          복사
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            style={{
+              position: 'fixed',
+              bottom: '40px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              color: 'white',
+              padding: '12px 24px',
+              borderRadius: '24px',
+              fontSize: '0.9rem',
+              zIndex: 2000
+            }}
+          >
+            계좌번호가 복사되었습니다.
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
