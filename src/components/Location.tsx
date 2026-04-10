@@ -50,7 +50,9 @@ export default function Location() {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '8px',
-            fontSize: '0.9rem'
+            fontSize: '0.9rem',
+            color: '#333',
+            backgroundColor: 'var(--background)'
           }}
         >
           <Navigation size={18} /> 카카오맵
@@ -65,7 +67,9 @@ export default function Location() {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '8px',
-            fontSize: '0.9rem'
+            fontSize: '0.9rem',
+            color: '#333',
+            backgroundColor: 'var(--background)'
           }}
         >
           <Navigation size={18} /> 네이버 지도

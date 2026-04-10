@@ -34,32 +34,43 @@ export default function Calendar() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '15px 0' }}>
             {Array.from({ length: emptyBefore }).map((_, i) => <div key={`empty-${i}`} />)}
-            {dates.map(d => (
-              <div 
-                key={d} 
-                style={{ 
-                  fontSize: '0.9rem',
-                  position: 'relative',
-                  color: (emptyBefore + d - 1) % 7 === 0 ? '#d9534f' : '#333',
-                  fontWeight: d === 6 ? 'bold' : 'normal'
-                }}
-              >
-                {d === 6 && (
-                  <div style={{ 
-                    position: 'absolute', 
-                    top: '50%', 
-                    left: '50%', 
-                    transform: 'translate(-50%, -50%)',
-                    width: '30px', 
-                    height: '30px', 
-                    backgroundColor: 'var(--warm-beige)', 
-                    borderRadius: '50%', 
-                    zIndex: -1 
-                  }} />
-                )}
-                {d}
-              </div>
-            ))}
+            {dates.map(d => {
+              const isWeddingDay = d === 6;
+              const isSunday = (emptyBefore + d - 1) % 7 === 0;
+              
+              return (
+                <div 
+                  key={d} 
+                  style={{ 
+                    fontSize: '0.9rem',
+                    position: 'relative',
+                    color: isSunday ? '#d9534f' : (isWeddingDay ? '#333' : '#333'),
+                    fontWeight: isWeddingDay ? '700' : '400',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '34px',
+                    width: '100%',
+                    zIndex: 1
+                  }}
+                >
+                  {isWeddingDay && (
+                    <div style={{ 
+                      position: 'absolute', 
+                      top: '50%', 
+                      left: '50%', 
+                      transform: 'translate(-50%, -50%)',
+                      width: '34px', 
+                      height: '34px', 
+                      backgroundColor: '#eeeeee', 
+                      borderRadius: '50%', 
+                      zIndex: -1
+                    }} />
+                  )}
+                  {d}
+                </div>
+              );
+            })}
           </div>
         </div>
 

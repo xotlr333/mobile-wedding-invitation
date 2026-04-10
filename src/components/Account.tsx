@@ -45,12 +45,12 @@ export default function Account() {
           <div key={group.id} style={{ border: '1px solid var(--border-color)', borderRadius: '8px', backgroundColor: 'var(--background)' }}>
             <button
               onClick={() => setOpenSection(openSection === group.id ? null : group.id)}
-              style={{ width: '100%', padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+              style={{ width: '100%', padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#333' }}
             >
               <span style={{ fontSize: '1rem', fontWeight: 500 }}>{group.title}</span>
               <ChevronDown
                 size={20}
-                style={{ transform: openSection === group.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                style={{ transform: openSection === group.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s', color: '#888' }}
               />
             </button>
             <AnimatePresence>
@@ -77,7 +77,8 @@ export default function Account() {
                             fontSize: '0.8rem',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '4px'
+                            gap: '4px',
+                            color: '#333'
                           }}
                         >
                           {copied === item.num ? <Check size={14} color="#28a745" /> : <Copy size={14} />}
