@@ -32,7 +32,7 @@ export default function Invitation() {
             <strong style={{ fontSize: '1.1rem', color: '#111' }}>태식</strong>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px' }}>
-            <span>민경기 · 홍</span>
+            <span>민경기 · 홍경아</span>
             <span style={{ fontSize: '0.9rem', color: '#888' }}>의</span>
             <span style={{ fontSize: '0.9rem', color: '#888' }}>딸</span>
             <strong style={{ fontSize: '1.1rem', color: '#111' }}>유림</strong>
