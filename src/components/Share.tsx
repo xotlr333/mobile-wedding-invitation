@@ -3,9 +3,39 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const SITE_URL = 'https://mobile-wedding-invitation-iota.vercel.app';
+
 export default function Share() {
   const handleShare = () => {
-    if (navigator.share) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const Kakao = (window as any).Kakao;
+
+    if (Kakao) {
+      if (!Kakao.isInitialized()) {
+        Kakao.init(process.env.NEXT_PUBLIC_KAKAO_APP_KEY);
+      }
+      Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '공태식 ❤️ 민유림 결혼합니다',
+          description: '2026년 12월 6일 일요일 오전 11시 | 라시따시어터 (양재)',
+          imageUrl: `${SITE_URL}/hero_1.JPG`,
+          link: {
+            mobileWebUrl: SITE_URL,
+            webUrl: SITE_URL,
+          },
+        },
+        buttons: [
+          {
+            title: '청첩장 보기',
+            link: {
+              mobileWebUrl: SITE_URL,
+              webUrl: SITE_URL,
+            },
+          },
+        ],
+      });
+    } else if (navigator.share) {
       navigator.share({
         title: '공태식 ❤️ 민유림 결혼합니다',
         text: '2026년 12월 6일 일요일 오전 11시, 라시따시어터',
