@@ -19,6 +19,15 @@ export default function Hero() {
           style={{ objectFit: 'cover' }}
           priority
         />
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '45%',
+          background: 'linear-gradient(to bottom, rgba(251,247,242,0), rgba(251,247,242,1))',
+          pointerEvents: 'none',
+        }} />
       </motion.div>
 
       <motion.div
