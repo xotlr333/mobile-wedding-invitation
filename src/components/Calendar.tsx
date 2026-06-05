@@ -20,10 +20,10 @@ export default function Calendar() {
   return (
     <section style={{ backgroundColor: 'var(--secondary-bg)', textAlign: 'center' }}>
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.8, ease: 'easeOut' }}
       >
         <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '30px' }}>2026. 12. 06</h2>
         <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '40px' }}>일요일 오전 11시 00분</p>
@@ -55,15 +55,15 @@ export default function Calendar() {
                   }}
                 >
                   {isWeddingDay && (
-                    <div style={{ 
-                      position: 'absolute', 
-                      top: '50%', 
-                      left: '50%', 
+                    <div style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
                       transform: 'translate(-50%, -50%)',
-                      width: '34px', 
-                      height: '34px', 
-                      backgroundColor: '#eeeeee', 
-                      borderRadius: '50%', 
+                      width: '34px',
+                      height: '34px',
+                      backgroundColor: '#E8C4A0',
+                      borderRadius: '50%',
                       zIndex: -1
                     }} />
                   )}
@@ -74,8 +74,8 @@ export default function Calendar() {
           </div>
         </div>
 
-        <div style={{ marginTop: '50px', fontSize: '0.9rem', color: 'var(--foreground)' }}>
-          태식 ❤️ 유림의 결혼식이 <strong>{remainingDays}일</strong> 남았습니다.
+        <div style={{ marginTop: '50px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+          태식 ❤️ 유림의 결혼식이 <strong style={{ color: 'var(--highlight)' }}>{remainingDays}일</strong> 남았습니다.
         </div>
       </motion.div>
     </section>

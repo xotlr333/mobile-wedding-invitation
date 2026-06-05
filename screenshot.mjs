@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch();
+const page = await browser.newPage();
+await page.setViewportSize({ width: 390, height: 844 });
+await page.goto('http://localhost:3000', { waitUntil: 'networkidle', timeout: 20000 });
+await page.waitForTimeout(2000);
+await page.evaluate(y => document.body.scrollTo({ top: y, behavior: 'instant' }), 844);
+await page.waitForTimeout(800);
+await page.screenshot({ path: '/tmp/app-invitation.png' });
+await browser.close();
+console.log('Done');

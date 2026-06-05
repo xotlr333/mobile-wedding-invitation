@@ -36,21 +36,33 @@ export default function Account() {
 
   return (
     <section style={{ backgroundColor: 'var(--secondary-bg)' }}>
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1.6, ease: 'easeOut' }}
+        style={{ textAlign: 'center', marginBottom: '40px' }}
+      >
         <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--accent-color)' }}>ACCOUNT</h2>
-      </div>
+      </motion.div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1.6, delay: 0.2, ease: 'easeOut' }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
+      >
         {accounts.map((group) => (
           <div key={group.id} style={{ border: '1px solid var(--border-color)', borderRadius: '8px', backgroundColor: 'var(--background)' }}>
             <button
               onClick={() => setOpenSection(openSection === group.id ? null : group.id)}
-              style={{ width: '100%', padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#333' }}
+              style={{ width: '100%', padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'var(--foreground)' }}
             >
               <span style={{ fontSize: '1rem', fontWeight: 500 }}>{group.title}</span>
               <ChevronDown
                 size={20}
-                style={{ transform: openSection === group.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s', color: '#888' }}
+                style={{ transform: openSection === group.id ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s', color: 'var(--text-muted)' }}
               />
             </button>
             <AnimatePresence>
@@ -65,7 +77,7 @@ export default function Account() {
                     {group.list.map((item, idx) => (
                       <div key={idx} style={{ paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div style={{ fontSize: '0.9rem' }}>
-                          <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>{item.bank} {item.owner}</div>
+                          <div style={{ fontWeight: 'bold', marginBottom: '4px', color: 'var(--foreground)' }}>{item.bank} {item.owner}</div>
                           <div style={{ color: 'var(--text-muted)' }}>{item.num}</div>
                         </div>
                         <button
@@ -78,10 +90,10 @@ export default function Account() {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '4px',
-                            color: '#333'
+                            color: 'var(--foreground)'
                           }}
                         >
-                          {copied === item.num ? <Check size={14} color="#28a745" /> : <Copy size={14} />}
+                          {copied === item.num ? <Check size={14} color="#B8866A" /> : <Copy size={14} />}
                           복사
                         </button>
                       </div>
@@ -92,9 +104,8 @@ export default function Account() {
             </AnimatePresence>
           </div>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Toast Notification */}
       <AnimatePresence>
         {copied && (
           <motion.div
@@ -106,8 +117,8 @@ export default function Account() {
               bottom: '40px',
               left: '50%',
               transform: 'translateX(-50%)',
-              backgroundColor: 'rgba(0,0,0,0.8)',
-              color: 'white',
+              backgroundColor: 'rgba(58,42,34,0.85)',
+              color: '#FBF7F2',
               padding: '12px 24px',
               borderRadius: '24px',
               fontSize: '0.9rem',

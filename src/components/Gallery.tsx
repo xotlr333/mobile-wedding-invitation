@@ -42,9 +42,10 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ opacity: 0.8 }}
+            transition={{ duration: 1.0, delay: (index % 9) * 0.07, ease: 'easeOut' }}
+            whileHover={{ opacity: 0.85 }}
             onClick={() => setSelectedImg(src)}
-            style={{ position: 'relative', aspectRatio: '1/1', cursor: 'pointer', backgroundColor: '#f0f0f0' }}
+            style={{ position: 'relative', aspectRatio: '1/1', cursor: 'pointer', backgroundColor: 'var(--warm-beige)' }}
           >
             <Image 
               src={src} 
@@ -62,14 +63,15 @@ export default function Gallery() {
             onClick={() => setShowAll(true)}
             style={{
               padding: '12px 40px',
-              backgroundColor: '#1a1f2c',
-              color: 'white',
+              backgroundColor: 'var(--accent-color)',
+              color: '#FBF7F2',
               border: 'none',
               borderRadius: '8px',
-              fontSize: '1rem',
+              fontSize: '0.95rem',
               cursor: 'pointer',
               fontFamily: 'var(--font-sans)',
-              transition: 'opacity 0.2s'
+              letterSpacing: '0.04em',
+              transition: 'opacity 0.3s'
             }}
             onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
             onMouseOut={(e) => e.currentTarget.style.opacity = '1'}

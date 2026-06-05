@@ -1,12 +1,13 @@
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --secondary-bg: #f8f8f8;
-  --accent-color: #333333;
-  --border-color: #eeeeee;
-  --warm-beige: #eae7e1;
-  --text-muted: #666666;
-  
+  --background: #FBF7F2;
+  --foreground: #3A2A22;
+  --secondary-bg: #F4EDE3;
+  --accent-color: #7A5C4F;
+  --border-color: #E5D9CE;
+  --warm-beige: #EAE0D5;
+  --text-muted: #9C8A7E;
+  --highlight: #B8866A;
+
   --max-width: 480px; /* Mobile-first container width */
 }
 
@@ -21,7 +22,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background-color: #f0f0f0; /* Display background */
+  background-color: #D8CEC5;
 }
 
 body {

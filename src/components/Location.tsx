@@ -2,6 +2,12 @@
 
 import { MapPin, Navigation, Car, Train } from 'lucide-react';
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0 },
+};
 
 export default function Location() {
   const LAT = 37.4628;
@@ -18,14 +24,26 @@ export default function Location() {
 
   return (
     <section style={{ backgroundColor: 'var(--background)' }}>
-      <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1.6, ease: 'easeOut' }}
+        style={{ textAlign: 'center', marginBottom: '40px' }}
+      >
         <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--accent-color)' }}>LOCATION</h2>
         <p style={{ marginTop: '12px', fontSize: '1.1rem' }}>{NAME}</p>
         <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>서울 서초구 매헌로 16 하이브랜드 패션관 1층</p>
-      </div>
+      </motion.div>
 
-      {/* Real Kakao Map */}
-      <div style={{ width: '100%', height: '300px', borderRadius: '8px', overflow: 'hidden', marginBottom: '24px' }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1.6, delay: 0.2, ease: 'easeOut' }}
+        style={{ width: '100%', height: '300px', borderRadius: '8px', overflow: 'hidden', marginBottom: '24px' }}
+      >
         <Map
           center={{ lat: LAT, lng: LNG }}
           style={{ width: "100%", height: "100%" }}
@@ -37,9 +55,15 @@ export default function Location() {
             </div>
           </MapMarker>
         </Map>
-      </div>
+      </motion.div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '40px' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1.4, delay: 0.3, ease: 'easeOut' }}
+        style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '40px' }}
+      >
         <button
           onClick={() => handleMapClick('kakao')}
           style={{
@@ -51,7 +75,7 @@ export default function Location() {
             justifyContent: 'center',
             gap: '8px',
             fontSize: '0.9rem',
-            color: '#333',
+            color: 'var(--foreground)',
             backgroundColor: 'var(--background)'
           }}
         >
@@ -68,15 +92,21 @@ export default function Location() {
             justifyContent: 'center',
             gap: '8px',
             fontSize: '0.9rem',
-            color: '#333',
+            color: 'var(--foreground)',
             backgroundColor: 'var(--background)'
           }}
         >
           <Navigation size={18} /> 네이버 지도
         </button>
-      </div>
+      </motion.div>
 
-      <div style={{ fontSize: '0.9rem', lineHeight: '1.8' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1.4, delay: 0.4, ease: 'easeOut' }}
+        style={{ fontSize: '0.9rem', lineHeight: '1.8' }}
+      >
         <div style={{ marginBottom: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontWeight: 'bold' }}>
             <Train size={18} /> 지하철
@@ -90,7 +120,7 @@ export default function Location() {
           <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>내비게이션 &quot;라시따델라모다&quot; 검색</p>
           <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>건물 내 주차장 이용 가능 (무료 주차 2시간)</p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
