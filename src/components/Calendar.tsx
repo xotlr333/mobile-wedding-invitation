@@ -20,31 +20,40 @@ export default function Calendar() {
   return (
     <section style={{ backgroundColor: 'var(--secondary-bg)', textAlign: 'center' }}>
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.8, ease: 'easeOut' }}
+        style={{
+          backgroundColor: 'var(--background)',
+          borderRadius: '20px',
+          padding: '48px 28px 40px',
+          maxWidth: '320px',
+          margin: '0 auto',
+          boxShadow: '0 8px 40px rgba(122,92,79,0.1), 0 2px 8px rgba(122,92,79,0.06)',
+          border: '1px solid rgba(229,217,206,0.7)',
+        }}
       >
-        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '30px' }}>2026. 12. 06</h2>
-        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '40px' }}>일요일 오전 11시 00분</p>
+        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '10px' }}>2026. 12. 06</h2>
+        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '36px' }}>일요일 오전 11시 00분</p>
 
-        <div style={{ maxWidth: '300px', margin: '0 auto' }}>
+        <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', marginBottom: '10px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            {days.map(d => <div key={d} style={{ color: d === '일' ? '#d9534f' : 'inherit' }}>{d}</div>)}
+            {days.map(d => <div key={d} style={{ color: d === '일' ? '#c0635a' : 'inherit' }}>{d}</div>)}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '15px 0' }}>
             {Array.from({ length: emptyBefore }).map((_, i) => <div key={`empty-${i}`} />)}
             {dates.map(d => {
               const isWeddingDay = d === 6;
               const isSunday = (emptyBefore + d - 1) % 7 === 0;
-              
+
               return (
-                <div 
-                  key={d} 
-                  style={{ 
+                <div
+                  key={d}
+                  style={{
                     fontSize: '0.9rem',
                     position: 'relative',
-                    color: isSunday ? '#d9534f' : (isWeddingDay ? '#333' : '#333'),
+                    color: isWeddingDay ? 'var(--foreground)' : isSunday ? '#c0635a' : 'var(--foreground)',
                     fontWeight: isWeddingDay ? '700' : '400',
                     display: 'flex',
                     justifyContent: 'center',
@@ -74,7 +83,7 @@ export default function Calendar() {
           </div>
         </div>
 
-        <div style={{ marginTop: '50px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+        <div style={{ marginTop: '40px', fontSize: '0.85rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-color)', paddingTop: '28px' }}>
           태식 ❤️ 유림의 결혼식이 <strong style={{ color: 'var(--highlight)' }}>{remainingDays}일</strong> 남았습니다.
         </div>
       </motion.div>
