@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Navigation, Car, Train } from 'lucide-react';
+import { Navigation, Car, Train, Bus } from 'lucide-react';
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { motion } from 'framer-motion';
 
@@ -105,20 +105,59 @@ export default function Location() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 1.4, delay: 0.4, ease: 'easeOut' }}
-        style={{ fontSize: '0.9rem', lineHeight: '1.8' }}
+        style={{ fontSize: '0.85rem', lineHeight: '1.8' }}
       >
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontWeight: 'bold' }}>
-            <Train size={18} /> 지하철
+        {/* 지하철 */}
+        <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid var(--border-color)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontWeight: 'bold', color: 'var(--accent-color)' }}>
+            <Train size={18} /> 지하철 이용시
           </div>
-          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>신분당선 양재시민의숲역 3번 출구 (도보 10분)</p>
+          <p style={{ color: 'var(--foreground)', paddingLeft: '26px', marginBottom: '6px' }}>
+            양재시민의숲역 하차 (신분당선) - 5번 출구
+          </p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '4px' }}>
+            ★ 셔틀버스 운행 : 5번 출구 / 예식 1시간 전부터 10분 간격으로 운행
+          </p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>
+            ■ [마을버스] 5번 출구 - 횡단보도 건너편 서초20번 - [하이브랜드] 하차 → 라시따 A게이트
+          </p>
         </div>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontWeight: 'bold' }}>
-            <Car size={18} /> 자가용
+
+        {/* 버스 */}
+        <div style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid var(--border-color)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontWeight: 'bold', color: 'var(--accent-color)' }}>
+            <Bus size={18} /> 버스 이용시
           </div>
-          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>내비게이션 &quot;라시따델라모다&quot; 검색</p>
-          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>건물 내 주차장 이용 가능 (무료 주차 2시간)</p>
+          <p style={{ color: 'var(--foreground)', paddingLeft: '26px', marginBottom: '4px' }}>
+            하이브랜드 정류장 하차 [22384] → 라시따 A게이트
+          </p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '12px' }}>
+            ■ [마을버스] 서초08, 서초20
+          </p>
+          <p style={{ color: 'var(--foreground)', paddingLeft: '26px', marginBottom: '4px' }}>
+            양곡도매시장 정류장 하차 [22299] → 라시따 A게이트
+          </p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '2px' }}>■ [간선버스] 441</p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '2px' }}>■ [지선버스] 8442</p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '2px' }}>■ [광역버스] 9100, 9200, 9201, 9300</p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '2px' }}>■ [일반버스] 6, 11-3</p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px' }}>■ [직행버스] 1006, 3000, 3003, 3030, 3100, 3101, 6501, G9633</p>
+        </div>
+
+        {/* 자가용 */}
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', fontWeight: 'bold', color: 'var(--accent-color)' }}>
+            <Car size={18} /> 자가용 이용시
+          </div>
+          <p style={{ color: 'var(--foreground)', paddingLeft: '26px', marginBottom: '6px' }}>
+            네비게이션 &apos;라시따시어터&apos; 또는 &apos;하이브랜드&apos; 입력
+          </p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '2px' }}>■ [주소 검색] 서울 매헌로 16</p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '6px' }}>■ [주차장] 동시 1,000대 주차 가능</p>
+          <div style={{ paddingLeft: '26px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ color: '#2563eb', fontWeight: 500 }}>■ 파랑색 유도선 → 지하3층 주차장</span>
+            <span style={{ color: '#db2777', fontWeight: 500 }}>■ 분홍색 유도선 → 타워주차장</span>
+          </div>
         </div>
       </motion.div>
     </section>

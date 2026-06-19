@@ -37,7 +37,7 @@ export default function Hero() {
         style={{ height: '25%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'var(--background)', width: '100%', padding: '20px 0' }}
       >
         <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '10px', letterSpacing: '0.12em', color: 'var(--foreground)' }}>공태식 & 민유림</p>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', letterSpacing: '0.08em' }}>2026. 12. 06. SUN AM 11:00</p>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', letterSpacing: '0.08em' }}>2026.12.06 (SUN) 11:00 AM</p>
         <p style={{ color: 'var(--highlight)', fontSize: '0.78rem', marginTop: '10px', letterSpacing: '0.04em' }}>라시따시어터 (양재)</p>
       </motion.div>
     </section>

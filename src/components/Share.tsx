@@ -76,7 +76,7 @@ export default function Share() {
         </button>
 
         <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '40px', letterSpacing: '0.02em' }}>
-          Copyright © 2026 공태식 & 민유림. All rights reserved.
+          Copyright 2026 따식이 & 도램이. All rights reserved.
         </p>
       </motion.div>
     </section>
