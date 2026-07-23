@@ -35,7 +35,7 @@ export default function Calendar() {
         }}
       >
         <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '10px' }}>2026. 12. 06</h2>
-        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '36px' }}>일요일 오전 11시 00분</p>
+        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '36px' }}>일요일 오전 11시</p>
 
         <div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', marginBottom: '10px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
@@ -84,7 +84,7 @@ export default function Calendar() {
         </div>
 
         <div style={{ marginTop: '40px', fontSize: '0.85rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-color)', paddingTop: '28px' }}>
-          태식 ❤️ 유림의 결혼식이 <strong style={{ color: 'var(--highlight)' }}>{remainingDays}일</strong> 남았습니다.
+          태식 ♥ 유림의 결혼식이 <strong style={{ color: 'var(--highlight)' }}>{remainingDays}일</strong> 남았습니다.
         </div>
       </motion.div>
     </section>

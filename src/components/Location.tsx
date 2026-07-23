@@ -34,7 +34,7 @@ export default function Location() {
       >
         <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--accent-color)' }}>LOCATION</h2>
         <p style={{ marginTop: '12px', fontSize: '1.1rem' }}>{NAME}</p>
-        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>서울 서초구 매헌로 16 하이브랜드 패션관 1층</p>
+        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>서울 서초구 매헌로 16 1층</p>
       </motion.div>
 
       <motion.div

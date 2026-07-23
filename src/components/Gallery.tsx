@@ -6,21 +6,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
-  '/gallery1.JPG',
-  '/gallery2.JPG',
-  '/gallery3.JPG',
-  '/gallery4.JPG',
-  '/gallery5.JPG',
-  '/gallery6.JPG',
-  '/gallery7.JPG',
-  '/gallery8.JPG',
-  '/gallery9.JPG',
-  '/gallery10.JPG',
-  '/gallery11.JPG',
-  '/gallery12.JPG',
-  '/gallery13.JPG',
-  '/gallery14.JPG',
-  '/gallery15.JPG',
+  '/MYL_1996.jpg',
+  '/MYL_0524.jpg',
+  '/MYL_0583.jpg',
+  '/MYL_0672.jpg',
+  '/MYL_0792.jpg',
+  '/MYL_1633.jpg',
+  '/MYL_1765_1.jpg',
+  '/MYL_1776.jpg',
+  '/MYL_1949.jpg',
+  '/MYL_2044.jpg',
+  '/MYL_2062.jpg',
 ];
 
 const slideVariants = {

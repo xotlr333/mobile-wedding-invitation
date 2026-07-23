@@ -19,10 +19,10 @@ const notoSans = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mobile-wedding-invitation-iota.vercel.app"),
-  title: "심플 & 웜 모바일 청첩장",
+  title: "태식 ♥ 유림 청첩장",
   description: "우리의 소중한 날, 당신을 초대합니다.",
   openGraph: {
-    title: "공태식 ❤️ 민유림 결혼합니다",
+    title: "공태식 ♥ 민유림 결혼합니다",
     description: "2026년 12월 6일 일요일 오전 11시",
     images: [
       {

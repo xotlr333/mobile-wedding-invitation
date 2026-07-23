@@ -13,16 +13,14 @@ export default function Account() {
       id: 'groom',
       title: '신랑측 계좌번호',
       list: [
-        { bank: '국민은행', num: '123456-01-123456', owner: '김동수' },
-        { bank: '신한은행', num: '987-654-3210', owner: '김영수(부)' },
+        { bank: '농협', num: '3520859498903', owner: '공태식', role: '신랑' },
       ]
     },
     {
       id: 'bride',
-      title: '신부측 계죄번호',
+      title: '신부측 계좌번호',
       list: [
-        { bank: '우리은행', num: '1002-123-456789', owner: '이영자' },
-        { bank: '농협은행', num: '302-1234-5678-90', owner: '박정숙(모)' },
+        { bank: '농협', num: '17359751026379', owner: '민유림', role: '신부' },
       ]
     }
   ];
@@ -77,8 +75,11 @@ export default function Account() {
                     {group.list.map((item, idx) => (
                       <div key={idx} style={{ paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div style={{ fontSize: '0.9rem' }}>
-                          <div style={{ fontWeight: 'bold', marginBottom: '4px', color: 'var(--foreground)' }}>{item.bank} {item.owner}</div>
-                          <div style={{ color: 'var(--text-muted)' }}>{item.num}</div>
+                          <div style={{ fontWeight: 'bold', marginBottom: '4px', color: 'var(--foreground)' }}>
+                            {item.owner}
+                            <span style={{ fontSize: '0.75rem', fontWeight: 'normal', color: 'var(--text-muted)', marginLeft: '5px' }}>{item.role}</span>
+                          </div>
+                          <div style={{ color: 'var(--text-muted)' }}>{item.bank} {item.num}</div>
                         </div>
                         <button
                           onClick={() => handleCopy(item.num)}
