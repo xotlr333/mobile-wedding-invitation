@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Serif_KR, Noto_Sans_KR } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -16,6 +16,13 @@ const notoSans = Noto_Sans_KR({
   weight: ["300", "400", "500", "700"],
   variable: "--font-sans",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mobile-wedding-invitation-iota.vercel.app"),
