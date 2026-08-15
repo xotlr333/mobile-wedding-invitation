@@ -20,6 +20,7 @@ const notoSans = Noto_Sans_KR({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  minimumScale: 1,
   maximumScale: 1,
   userScalable: false,
 };
@@ -53,6 +54,14 @@ export default function RootLayout({
         <div className="container">
           {children}
         </div>
+        <Script id="prevent-zoom" strategy="afterInteractive">{`
+          document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 1) e.preventDefault();
+          }, { passive: false });
+          document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+          });
+        `}</Script>
         <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
         <Script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" strategy="afterInteractive" />
       </body>
