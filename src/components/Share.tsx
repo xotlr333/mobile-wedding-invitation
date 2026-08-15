@@ -18,8 +18,8 @@ export default function Share() {
         objectType: 'feed',
         content: {
           title: '공태식 ❤️ 민유림 결혼합니다',
-          description: '2026년 12월 6일 일요일 오전 11시 | 라시따시어터 (양재)',
-          imageUrl: `${SITE_URL}/hero_1.JPG`,
+          description: '2026년 12월 6일 일요일 오전 11시 라시따시어터',
+          imageUrl: `${SITE_URL}/image/MYL_0497.jpg`,
           link: {
             mobileWebUrl: SITE_URL,
             webUrl: SITE_URL,
