@@ -13,7 +13,7 @@ export default function Hero() {
         style={{ width: '100%', height: '75%', position: 'relative' }}
       >
         <Image
-          src="/MYL_1996.jpg"
+          src="/image/MYL_0434.jpg"
           alt="Wedding Hero"
           fill
           style={{ objectFit: 'cover' }}

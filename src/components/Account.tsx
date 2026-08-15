@@ -13,6 +13,8 @@ export default function Account() {
       id: 'groom',
       title: '신랑측 계좌번호',
       list: [
+        { bank: '농협', num: '19712552011', owner: '공경택', role: '아버지' },
+        { bank: '국민', num: '183210135854', owner: '박찬옥', role: '어머니' },
         { bank: '농협', num: '3520859498903', owner: '공태식', role: '신랑' },
       ]
     },
@@ -20,6 +22,8 @@ export default function Account() {
       id: 'bride',
       title: '신부측 계좌번호',
       list: [
+        { bank: '카카오', num: '3333305382762', owner: '민경기', role: '아버지' },
+        { bank: '농협', num: '3560433227603', owner: '홍경아', role: '어머니' },
         { bank: '농협', num: '17359751026379', owner: '민유림', role: '신부' },
       ]
     }
