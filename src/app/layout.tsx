@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: "2026년 12월 6일 일요일 오전 11시",
     images: [
       {
-        url: "/hero_1.JPG",
+        url: "/image/MYL_0497.jpg",
         width: 1200,
         height: 630,
         alt: "모바일 청첩장",
