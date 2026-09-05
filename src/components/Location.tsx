@@ -153,7 +153,7 @@ export default function Location() {
             네비게이션 &apos;라시따시어터&apos; 또는 &apos;하이브랜드&apos; 입력
           </p>
           <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '2px' }}>■ [주소 검색] 서울 매헌로 16</p>
-          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '6px' }}>■ [주차장] 동시 1,000대 주차 가능</p>
+          <p style={{ color: 'var(--text-muted)', paddingLeft: '26px', marginBottom: '6px' }}>■ [주차장] 동시 1,000대 주차 가능 / 3시간 무료</p>
           <div style={{ paddingLeft: '26px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
             <span style={{ color: '#2563eb', fontWeight: 500 }}>■ 파랑색 유도선 → 지하3층 주차장</span>
             <span style={{ color: '#db2777', fontWeight: 500 }}>■ 분홍색 유도선 → 타워주차장</span>
