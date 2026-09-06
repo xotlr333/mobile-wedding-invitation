@@ -22,6 +22,7 @@ const images = [
   '/image/MYL_1304-.jpg',
   '/image/MYL_1380-.jpg',
   '/image/MYL_1396-.jpg',
+  '/image/MYL_1440-1.jpg',
   '/image/MYL_1633.jpg',
   '/image/MYL_1687-.jpg',
   '/image/MYL_1765.jpg',
