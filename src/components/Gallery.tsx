@@ -15,7 +15,7 @@ const images = [
   // '/image/MYL_0557-.jpg',
   '/image/MYL_0583.jpg',
   '/image/MYL_0621-.jpg',
-  // '/image/MYL_0672.jpg',
+  '/image/MYL_0672.jpg',
   // '/image/MYL_0792.jpg',
   '/image/MYL_0873-.jpg',
   '/image/MYL_1279-.jpg',
